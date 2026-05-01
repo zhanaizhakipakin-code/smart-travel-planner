@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Travel Planner - Map</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">Smart Travel</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="flights.html">Flights</a></li>
+          <li><a href="hotels.html">Hotels</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="tips.html">Tips</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="reveal">
+        <h1 class="section-title">Travel Map</h1>
+        <p class="section-subtitle">
+          Explore a popular destination to plan your nearby attractions and routes.
+        </p>
+      </section>
+
+      <section class="map-wrapper reveal">
+        <iframe
+          src="https://maps.google.com/maps?q=paris&t=&z=12&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Paris Map"
+        ></iframe>
+      </section>
+
+      <section class="card reveal" style="margin-top: 1rem">
+        <h3>Destination Spotlight: Paris</h3>
+        <p class="muted">
+          Paris offers world-famous museums, iconic landmarks, cozy cafes, and
+          charming neighborhoods. Use this map to identify attractions, metro
+          lines, and hotel locations for a smoother trip.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">&copy; 2026 Smart Travel Planner</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

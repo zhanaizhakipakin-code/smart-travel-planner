@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Travel Planner - Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Shared navbar across all pages -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a class="logo" href="index.html">Smart Travel</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="flights.html">Flights</a></li>
+          <li><a href="hotels.html">Hotels</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="tips.html">Tips</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero reveal">
+        <div>
+          <h1>Plan Your Dream Trip with AI</h1>
+          <p>
+            Build smarter travel plans in minutes. Compare flights and hotels,
+            explore maps, and discover practical travel tips.
+          </p>
+          <a href="#planner" class="btn secondary">Start Planning</a>
+        </div>
+        <div class="hero-card">
+          <h3>Smart Travel Planner</h3>
+          <p>
+            Use AI-like suggestions to organize day-by-day activities based on
+            your destination, budget, and trip duration.
+          </p>
+        </div>
+      </section>
+
+      <section id="planner" class="planner reveal">
+        <h2 class="section-title">AI Trip Planner</h2>
+        <p class="section-subtitle">
+          Fill in details and generate a smart, day-by-day sample plan.
+        </p>
+
+        <div class="grid-3">
+          <div>
+            <label for="destination">Destination</label>
+            <input id="destination" type="text" placeholder="e.g., Paris" />
+          </div>
+          <div>
+            <label for="budget">Budget</label>
+            <input id="budget" type="text" placeholder="e.g., $1500" />
+          </div>
+          <div>
+            <label for="days">Days</label>
+            <input id="days" type="number" min="1" max="10" value="3" />
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="generate-plan" class="btn">Generate Plan</button>
+          <a href="flights.html" class="btn">Go to Flights</a>
+          <a href="hotels.html" class="btn">Go to Hotels</a>
+        </div>
+
+        <!-- JavaScript fills this itinerary area -->
+        <div id="itinerary-output" class="itinerary muted">
+          Your generated itinerary will appear here.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">&copy; 2026 Smart Travel Planner</div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
