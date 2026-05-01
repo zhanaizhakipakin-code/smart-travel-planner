@@ -21,26 +21,38 @@
       </div>
     </header>
 
-    <main class="container">
+    <main>
       <section class="hero reveal">
-        <div>
-          <h1>Plan Your Dream Trip with AI</h1>
-          <p>
-            Build smarter travel plans in minutes. Compare flights and hotels,
-            explore maps, and discover practical travel tips.
-          </p>
-          <a href="#planner" class="btn secondary">Start Planning</a>
-        </div>
-        <div class="hero-card">
-          <h3>Smart Travel Planner</h3>
-          <p>
-            Use AI-like suggestions to organize day-by-day activities based on
-            your destination, budget, and trip duration.
-          </p>
+        <div class="container hero-content">
+          <h1>Explore the world your way</h1>
+          <p>Plan your perfect trip in seconds</p>
+
+          <!-- Visual search module for premium hero UX -->
+          <div class="hero-search">
+            <div class="hero-search-grid">
+              <div>
+                <label for="hero-from">From</label>
+                <input id="hero-from" type="text" placeholder="Tashkent" />
+              </div>
+              <div>
+                <label for="hero-to">To</label>
+                <input id="hero-to" type="text" placeholder="Paris" />
+              </div>
+              <div>
+                <label for="hero-dates">Dates</label>
+                <input id="hero-dates" type="text" placeholder="15 May - 22 May" />
+              </div>
+              <div>
+                <label for="hero-travelers">Travelers</label>
+                <input id="hero-travelers" type="text" placeholder="2 Adults" />
+              </div>
+            </div>
+            <a href="#planner" class="btn secondary">Search Trips</a>
+          </div>
         </div>
       </section>
 
-      <section id="planner" class="planner reveal">
+      <section id="planner" class="container planner reveal">
         <h2 class="section-title">AI Trip Planner</h2>
         <p class="section-subtitle">
           Fill in details and generate a smart, day-by-day sample plan.

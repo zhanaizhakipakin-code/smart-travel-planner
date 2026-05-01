@@ -73,17 +73,64 @@ function setupTripPlanner() {
     const tripDays = Math.max(1, Math.min(days, 10));
 
     // Build a dynamic itinerary based on user day count and destination.
-    const itineraryItems = createItinerary(city, tripDays)
-      .map((plan, index) => `<li><strong>Day ${index + 1}:</strong> ${plan}</li>`)
+    const itineraryCards = createItinerary(city, tripDays)
+      .map((dayPlan, index) => createDayCard(dayPlan, index + 1))
       .join("");
 
     output.innerHTML = `
-      <h3>Your AI Trip Plan for ${city}</h3>
-      <p class="muted">Budget target: ${money} | Duration: ${tripDays} day(s)</p>
-      <ul>${itineraryItems}</ul>
+      <div class="itinerary-header">
+        <h3>Your AI Trip Plan for ${city}</h3>
+        <p class="muted">Budget target: ${money} | Duration: ${tripDays} day(s)</p>
+      </div>
+      <div class="itinerary-days">${itineraryCards}</div>
       <p class="muted">Tip: Use Flights and Hotels pages to continue planning your trip.</p>
     `;
+
+    output.classList.remove("plan-animate");
+    void output.offsetWidth;
+    output.classList.add("plan-animate");
   });
+}
+
+function createDayCard(dayPlan, dayNumber) {
+  const activities = splitPlanToActivities(dayPlan);
+  const iconSet = ["✈️", "🍽️", "🌿", "🏛️", "🛍️", "🌇"];
+
+  const activityItems = activities
+    .map(
+      (activity, index) => `
+        <li>
+          <span class="activity-icon">${iconSet[index % iconSet.length]}</span>
+          <span>${activity}</span>
+        </li>
+      `
+    )
+    .join("");
+
+  return `
+    <article class="day-card">
+      <h4>Day ${dayNumber}</h4>
+      <ul>${activityItems}</ul>
+    </article>
+  `;
+}
+
+function splitPlanToActivities(text) {
+  const normalized = text
+    .replace(/^Arrive in .*?,/i, "Arrival and hotel check-in,")
+    .replace(/^Land in .*?,/i, "Arrival and check-in,")
+    .replace(/^Reach .*?,/i, "Arrival and orientation,")
+    .replace(/^Enjoy a slow morning,/i, "Relaxed morning,")
+    .replace(/^Have brunch .*?,/i, "Brunch at a local favorite,")
+    .replace(/^Wrap up with .*?,/i, "Leisurely final morning,");
+
+  const segments = normalized
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  if (segments.length >= 2) return segments.slice(0, 3);
+  return [normalized];
 }
 
 function createItinerary(destination, days) {
